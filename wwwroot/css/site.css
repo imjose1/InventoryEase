@@ -1,0 +1,211 @@
+@import url("https://fonts.googleapis.com/css?family=Neucha|Cabin+Sketch&display=swap");
+
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+/*================================================= test==============*/
+/*body {
+    background-color: #14171e;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    transform: translateY(50%);
+}
+
+.container {
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 0 auto;
+    display: block;
+    min-width: 231.5px;
+    width: 100% !important;
+    max-width: 483px;
+}*/
+
+/* the code below is for the dropdown heading */
+.setting-description {
+    background-color: white;
+    border-radius: 15px 15px 0px 0px;
+    min-width: 231.5px;
+    width: 100% !important;
+    max-width: 483px;
+    text-align: left;
+}
+
+/*h10 {
+    font-size: 12px;
+    margin-left: 5px !important;
+    letter-spacing: 0.8px;
+    font-family: Arial !important;
+}*/
+h5 {
+    margin-bottom: 0 !important;
+}
+
+.setting-description-text {
+    padding-top: 18px !important;
+    color: #81828b;
+    font-family: "Cabin Sketch", cursive;
+}
+
+/* the code below is for the dropdown menu */
+.wrapper-dropdown {
+    position: relative;
+    display: inline-block;
+    min-width: 231.5px;
+    width: 100%;
+    !important;
+    max-width: 483px;
+    padding: 0px 0px 0px 0px;
+    min-height: 44px;
+    border-radius: 0px 0px 15px 15px;
+    background: white;
+    text-align: left;
+    color: black;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-bottom: 20px;
+    font-family: Arial;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.item {
+    font-family: "Cabin Sketch", cursive;
+}
+/*.scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}
+*/
+.arrow {
+    margin-left: 10px;
+    margin-right: 10px;
+    float: right;
+    rotate: 180deg;
+    margin-top: -5px;
+}
+
+.selected-display {
+    margin-left: 20px;
+}
+
+svg {
+    transition: all 0.3s;
+}
+
+.wrapper-dropdown::before {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    margin-top: -2px;
+    border-width: 6px 6px 0 6px;
+    border-style: solid;
+    border-color: #fff transparent;
+}
+
+.rotated {
+    transform: rotate(-180deg);
+}
+
+.wrapper-dropdown .dropdown {
+    transition: 0.3s;
+    position: absolute;
+    top: 120%;
+    right: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    z-index: 99;
+    border-radius: 15px;
+    box-shadow: inherit;
+    background: inherit;
+    -webkit-transform-origin: top;
+    -moz-transform-origin: top;
+    -ms-transform-origin: top;
+    transform-origin: top;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    opacity: 0;
+    visibility: hidden;
+}
+
+    .wrapper-dropdown .dropdown li {
+        padding: 0 15px;
+        line-height: 45px;
+        overflow: hidden;
+    }
+
+        .wrapper-dropdown .dropdown li:last-child {
+            border-bottom: none;
+        }
+
+.dropdown {
+    padding: 0.5rem !important;
+}
+
+.wrapper-dropdown .dropdown li:hover {
+    background-color: #6e6f70;
+    border-radius: 10px;
+}
+
+.wrapper-dropdown.active .dropdown {
+    opacity: 1;
+    visibility: visible;
+    border-radius: 15px;
+}
+/*================================= Modal Inventory form =============*/
+.custom-input {
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+.custom-button {
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+    .custom-button:hover {
+        background-color: #076c1e;
+    }
+
+.custom-label-section {
+    font-size: 25px;
+}
+
+.custom-label {
+    font-size: 20px;
+}

@@ -1,0 +1,177 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@model InventoryViewModel
+
+@* 
+@if (TempData["success"] != null) move this to a _notification partial view
+{
+    <h2>@TempData["success"]</h2>
+} *@
+@* <partial name="_Notification" /> moved to layoutview *@
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Navigation Bar (15% width) -->
+        <div class="col-md-2 bg-secondary mw-100 text-center" style="height:1000px">           
+            <a class="nav-link" asp-area="" asp-controller="Inventory" asp-action="Index"><h2 class="text-white mt-3"><i class="bi bi-egg-fried"></i> Flacos Tacos</h2></a>
+            <a asp-controller="Section" asp-action="Create">Add section  <i class="bi bi-plus-square"></i></a>
+            @* <-------- Add Product Model section------------> *@
+            <div>
+                <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#ProductModal">Add Product </button>
+                <div class="modal fade modal-xl" id="ProductModal" tabindex="-1" aria-labelledby="ProductModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-2" id="ProductModalLabel">Add new product:</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form method="post" asp-controller="Products" asp-action="CreateProduct">
+                                    <div class="form-group">
+                                        <label class="custom-label-section" for="sectionId">Select Section:</label>
+                                        <select class="form-control custom-input text-center" id="sectionId" name="NavSectionId">
+                                            @foreach (var obj in Model.NavSections)
+                                            {
+                                                <option value="@obj.Id">@obj.Name</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">                                          
+                                            <div class="form-group">
+                                                <label class="custom-label" for="Name">Name:</label>
+                                                <input type="text" class="form-control custom-input" name="Name">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="custom-label" for="Size">Size:</label>
+                                                <input type="text" class="form-control custom-input" name="Size">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="custom-label" for="Image">Image:</label>
+                                                <input type="text" class="form-control custom-input" name="Image">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-2">
+                                            <div class="form-group">
+                                                <label class="custom-label" for="OrderTreshold">Order Threshold:</label>
+                                                <input type="text" class="form-control custom-input" name="OrderTreshold">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="custom-label" for="OrderQuantity">Order Quantity:</label>
+                                                <input type="text" class="form-control custom-input" name="OrderQuantity">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="custom-label" for="CreatedDateTime">Date:</label>
+                                                <input type="text" class="form-control custom-input" name="CreatedDateTime">
+                                            </div>                                         
+                                        </div>
+                                        
+                                    </div>
+                                        <button type="submit" class="btn btn-primary custom-button ">Create Section</button>
+                                    
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>                             
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @* <-------- Navegation Sections------------> *@
+            @if (Model != null)
+            {
+            <div class=" pt-2">
+                  <ul class="list-group">
+                @foreach (var obj in Model.NavSections)
+                {
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <a class="nav-link" asp-controller="Inventory" asp-action="SectionInventory" asp-route-id="@obj.Id"><h5>@obj.Name</h5></a>
+                        <div>
+                          @*   <a asp-controller="Section" asp-action="Edit" asp-route-id="@obj.Id"><span class="badge bg-primary rounded-pill" style="font-size: 10px;"><i class="bi bi-pencil-square small"></i></span></a>
+                            <a asp-controller="Section" asp-action="Delete" asp-route-id="@obj.Id"><span class="badge bg-primary rounded-pill" style="font-size: 10px;"><i class="bi bi-trash"></i></span></a>   *@       
+                            <button data-toggle="modal" data-target="#myModal1" class="badge bg-primary rounded-pill" style="font-size: 10px;"><i class="bi bi-pencil-square small"></i></button>
+                            <button data-toggle="modal" data-target="#myModal1" class="badge bg-primary rounded-pill" style="font-size: 10px;"><i class="bi bi-trash"></i></button>                 
+                        </div> 
+                    </li>
+                           
+                }
+                </ul>
+                    @* <div class="setting-description">
+                        <div class="setting-description-text" style="margin-left: 15px">
+                            <h5>Description </h5>
+                        </div>
+                    </div>
+                    <div class="wrapper-dropdown" id="dropdown">
+                        <span class="selected-display" id="destination">Pick an option! </span>
+                        <div class="wrapper-edit">
+                            <a><span class="badge bg-primary rounded-pill" style="font-size: 10px;"><i class="bi bi-pencil-square small"></i></span></a>
+                            <a><span class="badge bg-primary rounded-pill" style="font-size: 10px;"><i class="bi bi-trash"></i></span></a>
+                            <svg class="arrow" id="drp-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-all ml-auto rotate-180">
+                                <path d="M7 14.5l5-5 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </div>
+                        <ul class="dropdown">
+                            <li class="item">Option 1</li>
+                            <li class="item">Option 2</li>
+                            <li class="item">Option 3</li>
+                            <li class="item">Option 4</li>
+                        </ul>
+                    </div> *@
+            </div>
+            
+            }      
+        </div>
+        <!-- Table Area (80% width) -->
+        <div class="col-md-10">
+                <div class="row pb-1">
+                    <div class="col-3 mt-5">
+                        <h1 class="header-title" style="font-weight: bold; font-size: 36px;">Iventory Tracking</h1>                   
+                    </div>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <div class="col-9 text-end" style="font-size: 23px;">
+                        <div>
+                            <h4 class="nav-link text-dark mt-5" style="margin-right:150px" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
+                                <img src="https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png" style="width:120px; height:66px;" />
+                                Hello @User.Identity?.Name!
+                            </h4>
+                        </div>                                                    
+                    </div>  
+                }
+            </div>          
+    <table class="table table-hover text-center">
+                <thead>
+                    <tr class="table-dark">
+                        <th scope="row">Name</th>
+                        <th >Sizes</th>
+                        <th >Images</th>
+                        <th >Order Treshold</th>
+                        <th >Order Quantity</th>
+                        <th >date</th>                      
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be dynamically added here using JavaScript -->
+                    @if(Model != null){
+                        foreach(var obj in Model.Products){
+                            <tr class="table-light">                   
+                                <td>@obj.Name</td>
+                                <td>@obj.Size</td>
+                                <td>
+                                    <img src="@obj.Image" alt="Product Image" width="50" height="30" />
+                                </td>
+                                <td>@obj.OrderTreshold</td>
+                                <td>@obj.OrderQuantity</td>
+                                <td>@obj.CreatedDateTime</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+  </div>
+

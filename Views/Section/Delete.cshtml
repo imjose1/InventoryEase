@@ -1,0 +1,22 @@
+﻿@model NavSectionModel
+
+<div class="container mx-auto">
+    <form method="POST" asp-action="DeletePOST" class="border p-3 mt-4">
+        <input asp-for="Id" hidden/>
+        <div class="row pb-2">
+            <h2 class="text-primary">Delete Section</h2>
+            <hr />
+        </div>
+        <div asp-validation-summary="All"></div>
+        <div class="form-group mb-3">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="form-control" disabled/> @* this asp-for send inf to post *@
+            <span asp-validation-for="Name" class="text-bg-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:150px">Delete</button>
+        <a asp-controller="Inventory" asp-action="Index" class="btn btn-secondary" style="width:150px">Back to list</a>
+    </form>
+</div>
+@section Scripts{
+    <partial name="_ValidationScriptsPartial"></partial>
+}
