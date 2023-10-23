@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/74wttx0S/SYcBLuDx3cJnJb+LXnd6FBJS08s3hTZqI=",
+  "Hash": "Ia4a1KYYFQ/FWtoTfTsnZrYPV4A1vzPt5fhkpWCf3Hc=",
   "Source": "InventoryEase",
   "BasePath": "_content/InventoryEase",
   "Mode": "Default",
@@ -1071,12 +1071,12 @@
       "OriginalItemSpec": "C:\\Users\\Owner\\Desktop\\InventoryEase\\InventoryEase\\InventoryEase\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\InventoryEase.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\Owner\\Desktop\\InventoryEase\\InventoryEase\\InventoryEase\\wwwroot\\css\\boostWacthTheme.css",
+      "Identity": "C:\\Users\\Owner\\Desktop\\InventoryEase\\InventoryEase\\InventoryEase\\wwwroot\\css\\boostWacthThemeLux.css",
       "SourceId": "InventoryEase",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Owner\\Desktop\\InventoryEase\\InventoryEase\\InventoryEase\\wwwroot\\",
       "BasePath": "_content/InventoryEase",
-      "RelativePath": "css/boostWacthTheme.css",
+      "RelativePath": "css/boostWacthThemeLux.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1085,7 +1085,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\boostWacthTheme.css"
+      "OriginalItemSpec": "wwwroot\\css\\boostWacthThemeLux.css"
     },
     {
       "Identity": "C:\\Users\\Owner\\Desktop\\InventoryEase\\InventoryEase\\InventoryEase\\wwwroot\\css\\site.css",

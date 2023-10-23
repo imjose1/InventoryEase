@@ -6,7 +6,7 @@ namespace InventoryEase.Models
     {
         public int Id { get; set; }
         [Required]public string? Name { get; set; }
-        [Required]public int Size { get; set; }
+        [Required]public string? Size { get; set; }
         [Required]public string? Image { get; set; }
         [Required] public int OrderTreshold { get; set; }
         [Required]public int OrderQuantity { get; set; }

@@ -18,20 +18,23 @@ html {
 body {
     margin-bottom: 60px;
 }
-/*================================================= test==============*/
-/*body {
-    background-color: #14171e;
+.container{
+    padding-left:0;
 }
+a{
+    text-decoration:none;
+}
+/*================================================= test==============*/
 
-.center {
+/*.center {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100%;
     transform: translateY(50%);
-}
-
+}*/
+/*
 .container {
     align-items: center;
     justify-content: center;
@@ -43,14 +46,14 @@ body {
 }*/
 
 /* the code below is for the dropdown heading */
-.setting-description {
+/*.setting-description {
     background-color: white;
     border-radius: 15px 15px 0px 0px;
     min-width: 231.5px;
     width: 100% !important;
     max-width: 483px;
     text-align: left;
-}
+}*/
 
 /*h10 {
     font-size: 12px;
@@ -58,7 +61,7 @@ body {
     letter-spacing: 0.8px;
     font-family: Arial !important;
 }*/
-h5 {
+/*h5 {
     margin-bottom: 0 !important;
 }
 
@@ -66,10 +69,10 @@ h5 {
     padding-top: 18px !important;
     color: #81828b;
     font-family: "Cabin Sketch", cursive;
-}
+}*/
 
 /* the code below is for the dropdown menu */
-.wrapper-dropdown {
+/*.wrapper-dropdown {
     position: relative;
     display: inline-block;
     min-width: 231.5px;
@@ -96,14 +99,14 @@ h5 {
 
 .item {
     font-family: "Cabin Sketch", cursive;
-}
+}*/
 /*.scrollable-menu {
     height: auto;
     max-height: 200px;
     overflow-x: hidden;
 }
 */
-.arrow {
+/*.arrow {
     margin-left: 10px;
     margin-right: 10px;
     float: right;
@@ -181,7 +184,7 @@ svg {
     opacity: 1;
     visibility: visible;
     border-radius: 15px;
-}
+}*/
 /*================================= Modal Inventory form =============*/
 .custom-input {
     border: 2px solid #ccc;

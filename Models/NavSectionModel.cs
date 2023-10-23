@@ -11,5 +11,6 @@ namespace InventoryEase.Models
         public string? Name { get; set; }
 
         public List<ProductsModel>? Products { get; set; }
+
     }
 }
