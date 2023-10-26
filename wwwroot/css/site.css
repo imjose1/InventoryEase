@@ -24,8 +24,15 @@ body {
 a{
     text-decoration:none;
 }
-/*================================================= test==============*/
 
+/*<-----------------------sideNavar----------------------->*/
+
+.side-navbar-bottons {
+    border: solid black 1px !important;
+    width: 50%;
+}
+
+/*================================================= test==============*/
 /*.center {
     display: flex;
     justify-content: center;
@@ -44,7 +51,6 @@ a{
     width: 100% !important;
     max-width: 483px;
 }*/
-
 /* the code below is for the dropdown heading */
 /*.setting-description {
     background-color: white;
@@ -54,7 +60,6 @@ a{
     max-width: 483px;
     text-align: left;
 }*/
-
 /*h10 {
     font-size: 12px;
     margin-left: 5px !important;
@@ -70,7 +75,6 @@ a{
     color: #81828b;
     font-family: "Cabin Sketch", cursive;
 }*/
-
 /* the code below is for the dropdown menu */
 /*.wrapper-dropdown {
     position: relative;

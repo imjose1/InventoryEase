@@ -3,15 +3,15 @@
 <div class="container-fluid">
     <div class="row">
         <!-- Navigation Bar (15% width) -->
-        <div class="col-md-2" style="height:1300px;border-right: solid 2px black;">
+        <div class="col-md-2 sidebar-wrapper" style="max-width:100%;border-right: solid 2px black;">
             <div>
                 <a class="nav-link" asp-area="" asp-controller="Inventory" asp-action="Index"><h2 class="mt-3"><i class="bi bi-egg-fried"></i> Flacos Tacos</h2></a>
             </div>
             @* -------------------- left Navbar butoon-------------------- *@
             <nav>
                 <div class="nav nav-tabs pb-4" id="nav-tab" role="tablist">
-                    <button class="nav-link active bg-dark text-white" id="section-tab" data-bs-toggle="tab" data-bs-target="#nav-section" type="button" role="tab" aria-controls="nav-section" aria-selected="true">Sections</button>
-                    <button class="nav-link bg-dark text-white" id="nav-providers-tab" data-bs-toggle="tab" data-bs-target="#nav-providers" type="button" role="tab" aria-controls="nav-providers" aria-selected="false">Providers</button>
+                    <button class="nav-link active side-navbar-bottons" id="section-tab" data-bs-toggle="tab" data-bs-target="#nav-section" type="button" role="tab" aria-controls="nav-section" aria-selected="true">Sections</button>
+                    <button class="nav-link side-navbar-bottons" id="nav-providers-tab" data-bs-toggle="tab" data-bs-target="#nav-providers" type="button" role="tab" aria-controls="nav-providers" aria-selected="false">Providers</button>
                 </div>
             </nav>
             <div class="tab-content text-center" id="nav-tabContent">

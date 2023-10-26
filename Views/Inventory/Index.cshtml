@@ -6,19 +6,18 @@
 <div class="container-fluid">
     <div class="row">
         <!-- Navigation Bar (15% width) -->
-        <div class="col-md-2" style="height:1300px;border-right: solid 2px black;">
+        <div class="col-md-2 sidebar-wrapper" style="max-width:100%; border-right: solid 2px black;">
             <div>
                 <a class="nav-link" asp-area="" asp-controller="Inventory" asp-action="Index"><h2 class="mt-3"><i class="bi bi-egg-fried"></i> Flacos Tacos</h2></a>                
             </div>
            @* -------------------- left Navbar butoon-------------------- *@
             <nav>
                 <div class="nav nav-tabs pb-4" id="nav-tab" role="tablist">
-                    <button class="nav-link active bg-dark text-white" id="section-tab" data-bs-toggle="tab" data-bs-target="#nav-section" type="button" role="tab" aria-controls="nav-section" aria-selected="true">Sections</button>
-                    <button class="nav-link bg-dark text-white" id="nav-providers-tab" data-bs-toggle="tab" data-bs-target="#nav-providers" type="button" role="tab" aria-controls="nav-providers" aria-selected="false">Providers</button>
+                    <button class="nav-link active side-navbar-bottons" id="section-tab" data-bs-toggle="tab" data-bs-target="#nav-section" type="button" role="tab" aria-controls="nav-section" aria-selected="true">Sections</button>
+                    <button class="nav-link side-navbar-bottons" id="nav-providers-tab" data-bs-toggle="tab" data-bs-target="#nav-providers" type="button" role="tab" aria-controls="nav-providers" aria-selected="false">Providers</button>
                 </div>
             </nav>
-            <div class="tab-content text-center" id="nav-tabContent">
-               
+            <div class="tab-content text-center" id="nav-tabContent">             
                 <div class="tab-pane fade show active pt-4" id="nav-section" role="tabpanel" aria-labelledby="section-tab" tabindex="0">
                     <a asp-controller="Section" asp-action="Create">Add section  <i class="bi bi-plus-square"></i></a>
                     @* <-------- Navegation Sections------------> *@
@@ -31,10 +30,32 @@
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         <a class="nav-link" asp-controller="Inventory" asp-action="SectionInventory" asp-route-id="@obj.Id"><h5>@obj.Name</h5></a>
                                         <div>
-                                            <a asp-controller="Section" asp-action="Edit" asp-route-id="@obj.Id"><span class="badge bg-primary rounded-pill" style="font-size: 10px;"><i class="bi bi-pencil-square small"></i></span></a>
-                                            <a asp-controller="Section" asp-action="Delete" asp-route-id="@obj.Id"><span class="badge bg-primary rounded-pill" style="font-size: 10px;"><i class="bi bi-trash"></i></span></a>
-                                            @*  <button data-toggle="modal" data-target="#myModal1" class="badge bg-primary rounded-pill" style="font-size: 10px;"><i class="bi bi-pencil-square small"></i></button>
-                                    <button data-toggle="modal" data-target="#myModal1" class="badge bg-primary rounded-pill" style="font-size: 10px;"><i class="bi bi-trash"></i></button>          *@
+                                           @*  <a asp-controller="Section" asp-action="Edit" asp-route-id="@obj.Id"><span class="badge bg-primary rounded-pill" style="font-size: 10px;"><i class="bi bi-pencil-square small"></i></span></a>
+                                            <a asp-controller="Section" asp-action="Delete" asp-route-id="@obj.Id"><span class="badge bg-primary rounded-pill" style="font-size: 10px;"><i class="bi bi-trash"></i></span></a> *@
+                                            <button data-toggle="modal" data-target="#myModal1" class="badge bg-primary rounded-pill" style="font-size: 10px;"><i class="bi bi-pencil-square small"></i></button>
+                                            <button data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-primary rounded-pill" style="font-size: 10px;"><i class="bi bi-trash"></i></button>
+ 
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="deleteModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h1 class="modal-title fs-5" id="deleteModalLabel">Are you sure you want to delete</h1>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body bg-danger">
+                                                            <a asp-controller="Section" asp-action="Delete" asp-route-id="@obj.Id"><span >@obj.Name</span></a>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                                            <button type="button" class="btn btn-primary">Cancel</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
                                         </div>
                                     </li>
 
@@ -57,13 +78,14 @@
                     <div class="col-3 mt-5">
                         <h1 class="header-title" style="font-weight: bold; font-size: 36px;">Iventory Tracking</h1>                   
                     </div>
-                @* <-------- Add Product Model section------------> *@
+                @* <-------- Add Product Model section------------>
                 <div class="text-end">
                     <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#ProductModal">Add Product </button>
                     <div class="modal fade modal-xl text-center" id="ProductModal" tabindex="-1" aria-labelledby="ProductModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
-                                <div class="modal-header">
+
+                                <div class="modal-header text-center">
                                     <h1 class="modal-title fs-2" id="ProductModalLabel">Add new product:</h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
